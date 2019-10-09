@@ -9,20 +9,28 @@ if (is_numeric($hoeveel)) {
 print_r("is geen getal");
  exit(); 
 }
-$dromen=array();
+$namen=array();
 
-
- for ($i=1; $i <=$hoeveel ; $i++) { 
+ for ($i=1; $i <= $hoeveel ; $i++) { 
 
  	print_r("wat is je naam?");
  	$naam= readline(":");
+$namen[$naam]=array();
+ 	print_r("hoeveel dromen wil je opgeven?");
+ 	$aantal=readline(":");
 
- 	print_r("wat is je droom?");
+for ($a=1; $a <= $aantal ; $a++) { 
+	
+ 	 print_r("wat is je droom?");
  	$droom= readline(":"); 
- 	$dromen[$naam]= $droom;
+ 	array_push( $namen[$naam],$droom  );
  }
+}
+
 
  
-foreach ($dromen as $naam => $droom) {
+foreach ($namen as $naam => $dromen ) {
+	foreach ($dromen as $i => $droom) {
+	
 	print_r("de droom van ". $naam . " is ". $droom. PHP_EOL );
-} 
+} }
